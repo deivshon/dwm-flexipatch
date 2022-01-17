@@ -226,6 +226,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,                       		XK_Right,        	setmfact,               {.f = +0.05} },
 	{ MODKEY|ShiftMask,            	XK_Return,     	zoom,                   {0} },
 	{ MODKEY,                       XK_Tab,        	focusstack,             {.i = +1 } },
+	{ MODKEY|ShiftMask,				XK_Tab,			focusmon,				{.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_q,          	killclient,             {0} },
 	{ MODKEY|ShiftMask,             XK_u,          	quit,                   {0} },
 	//{ MODKEY,                       XK_t,          setlayout,              {.v = &layouts[0]} },

@@ -47,7 +47,7 @@ draw_tags(Bar *bar, BarArg *a)
 int
 click_tags(Bar *bar, Arg *arg, BarArg *a)
 {
-	int i = 0, x = lrpad / 2;
+	int i = 0, x = 0;
 
 	do {
 		x += TEXTW(tagicon(bar->mon, i));
@@ -58,3 +58,9 @@ click_tags(Bar *bar, Arg *arg, BarArg *a)
 	return ClkTagBar;
 }
 
+int
+hover_tags(Bar *bar, BarArg *a, XMotionEvent *ev)
+{
+
+	return 1;
+}

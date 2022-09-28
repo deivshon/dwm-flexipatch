@@ -7,10 +7,9 @@ width_wintitle(Bar *bar, BarArg *a)
 int
 draw_wintitle(Bar *bar, BarArg *a)
 {
-	int x = a->x, w = a->w;
+	int x = a->x + lrpad / 2, w = a->w - lrpad / 2;
 	Monitor *m = bar->mon;
 	Client *c = m->sel;
-	int pad = lrpad / 2;
 
 	if (!c) {
 		drw_setscheme(drw, scheme[SchemeTitleNorm]);
@@ -18,9 +17,24 @@ draw_wintitle(Bar *bar, BarArg *a)
 		return 0;
 	}
 
+	int tpad = lrpad / 2;
+	int tx = x;
+	int tw = w;
+
 	drw_setscheme(drw, scheme[m == selmon ? SchemeTitleSel : SchemeTitleNorm]);
 
-	drw_text(drw, x, a->y, w, a->h, pad, c->name, 0, False);
+	if (w <= TEXTW("A") - lrpad + tpad) // reduce text padding if wintitle is too small
+		tpad = (w - TEXTW("A") + lrpad < 0 ? 0 : (w - TEXTW("A") + lrpad) / 2);
+
+	XSetForeground(drw->dpy, drw->gc, drw->scheme[ColBg].pixel);
+	XFillRectangle(drw->dpy, drw->drawable, drw->gc, x, a->y, w, a->h);
+
+
+	tx += tpad;
+	tw -= lrpad;
+
+
+	drw_text(drw, tx, a->y, tw, a->h, 0, c->name, 0, False);
 
 	drawstateindicator(m, c, 1, x, a->y, w, a->h, 0, 0, c->isfixed);
 	return 1;

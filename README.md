@@ -1,2 +1,17 @@
 # dwm-flexipatch
- Build of dwm-flexipatch containing personal configurations. Created using flexipatch-finalizer.
+Build of dwm-flexipatch containing personal configurations. Created using flexipatch-finalizer.
+
+Active patches:
+* BAR_LTSYMBOL_PATCH
+* BAR_STATUS_PATCH
+* BAR_SYSTRAY_PATCH
+* BAR_TAGS_PATCH
+* BAR_WINTITLE_PATCH
+* BAR_TITLE_LEFT_PAD_PATCH
+* NOBORDER_PATCH
+* NO_TRANSPARENT_BORDERS_PATCH
+* SENDMON_KEEPFOCUS_PATCH
+* VANITYGAPS_PATCH
+* WARP_PATCH
+* TILE_LAYOUT
+* MONOCLE_LAYOUT

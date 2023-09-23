@@ -9,16 +9,10 @@ OBJ = ${SRC:.c=.o}
 # FreeBSD users, prefix all ifdef, else and endif statements with a . for this to work (e.g. .ifdef)
 
 ifdef YAJLLIBS
-all: options dwm dwm-msg
+all: dwm dwm-msg
 else
-all: options dwm
+all: dwm
 endif
-
-options:
-	@echo dwm build options:
-	@echo "CFLAGS   = ${CFLAGS}"
-	@echo "LDFLAGS  = ${LDFLAGS}"
-	@echo "CC       = ${CC}"
 
 .c.o:
 	${CC} -c ${CFLAGS} $<
@@ -61,13 +55,13 @@ endif
 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
-	mkdir -p ${DESTDIR}${PREFIX}/share/xsession
-	cp -n dwm.desktop ${DESTDIR}${PREFIX}/share/xsession
-	chmod 644 ${DESTDIR}${PREFIX}/share/xsession/dwm.desktop
+	mkdir -p ${DESTDIR}${PREFIX}/share/xsessions
+	test -f ${DESTDIR}${PREFIX}/share/xsessions/dwm.desktop || cp -n dwm.desktop ${DESTDIR}${PREFIX}/share/xsessions
+	chmod 644 ${DESTDIR}${PREFIX}/share/xsessions/dwm.desktop
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
 		${DESTDIR}${MANPREFIX}/man1/dwm.1\
-		${DESTDIR}${PREFIX}/share/xsession/dwm.desktop
+		${DESTDIR}${PREFIX}/share/xsessions/dwm.desktop
 
-.PHONY: all options clean dist install uninstall
+.PHONY: all clean dist install uninstall

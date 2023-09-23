@@ -10,6 +10,8 @@
 #include "bar_systray.h"
 
 /* Other patches */
+#include "cyclelayouts.h"
+#include "pertag.h"
 #include "vanitygaps.h"
 #include "warp.h"
 /* Layouts */

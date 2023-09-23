@@ -183,7 +183,7 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "|=|",      tile },    /* first entry is default */
 	// { "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "|+|",      monocle },
 };
 
 /* key definitions */
@@ -210,7 +210,7 @@ static const char *dmenucmd[] = {
 };
 
 static const char *roficmd[] = { "rofi", "-show", "drun", NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[] = { "alacritty", NULL };
 static const char *lockcmd[] = { "xlock", NULL };
 
 static const Key keys[] = {

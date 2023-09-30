@@ -212,6 +212,7 @@ static const char *dmenucmd[] = {
 static const char *roficmd[] = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[] = { "alacritty", NULL };
 static const char *lockcmd[] = { "xlock", NULL };
+static const char *flameshotcmd[] = { "flameshot", "gui", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key            function                argument */
@@ -221,6 +222,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Right,      focusstack,             {.i = +1 } },
 	{ MODKEY,                       XK_Left,       focusstack,             {.i = -1 } },
 	{ MODKEY,                       XK_l,          spawn,                  {.v = lockcmd } },
+	{ MODKEY,                       XK_p,          spawn,                  {.v = flameshotcmd } },
 	// { MODKEY,                    XK_i,          incnmaster,             {.i = +1 } },
 	// { MODKEY,                    XK_d,          incnmaster,             {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_Left,       setmfact,               {.f = -0.05} },
